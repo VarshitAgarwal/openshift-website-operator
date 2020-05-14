@@ -1,5 +1,10 @@
-Getting Started With Operators
+Getting Started With Operators and Operator-SDK
 ===================================
+
+About this Operator
+-------------------
+This is a simple but working operator which listens on the creation of resources in the website.example.com group and the version v1 for kind Website. Once the operator is deployed, it listens and watches on any creation of Website kind of resource in the project where the operator is running as a pod, you will react to it by starting a new deployment automatically.  
+
 
 Okay. This explaination does require some of the basic Openshift knowledge about a couple of things. Here are they and should you need more about them, given are the resources. 
 
@@ -18,10 +23,12 @@ Tested On
 Things you'll need
 --------------------
 1. A working Openshift Cluster
+2. Installed operator-sdk on your linux machine and connection to the working openshift cluster.
 
 For installing CRC Openshift 4, follow the following:
 
-* [OpenShift 4 IPI Installation](https://developers.redhat.com/blog/2019/09/05/red-hat-openshift-4-on-your-laptop-introducing-red-hat-codeready-containers/) A tutorial about working with Openshift Installations
+* [OpenShift 4 IPI Installation](https://developers.redhat.com/blog/2019/09/05/red-hat-openshift-4-on-your-laptop-introducing-red-hat-codeready-containers/) A tutorial about working with Openshift Installations.
+* [Operator-SDK Installation](https://docs.openshift.com/container-platform/4.1/applications/operator_sdk/osdk-getting-started.html#osdk-installing-cli-gh-release_osdk-getting-started) Operator-SDK installation.
 
 A bit about Kubernetes Operators. ( Skip if you know what are Operators )
 --------------------
@@ -54,11 +61,25 @@ An operator is an extension of the application's engineering team you are deploy
 
 The Operators has a maturity level. Starting from simple deployment to all the way from a much more complex auto-piloted mode where it takes care of backups, restores, upgrades and component failure.
 
- 
+About this Operator
+-------------------
+This is a simple
 
-Once you have the required Openshift cluster setup by CRC or some other ways, create the project and deploy Jenkins-ephemeral from the template.
 
-> shub ocp4.2 ~/sample-pipeline % oc new-project jenkins-ci-cd  \
-> shub ocp4.2 ~/sample-pipeline % oc new-app --name jenkins jenkins-ephemeral
+Working with this git repository.
+---------------------------------
+Once you have the working cluster and operator-sdk installed, you need to initialize the temporary working directory for ansible based operators.
+
+shub ocp4.2 ~/sample-pipeline % mkdir ~/website-operator && cd ~/website-operator \
+shub ocp4.2 ~/sample-pipeline % operator-sdk new website-app --type=ansible --api-version=website.example.com/v1 --kind=Website
+
+IMPORTANT: If you are following this github which I am expecting you are, do not create your own operator. We are going to use the files from this git repository, and these are the same files created with the command.
+
+> shub ocp4.2 ~/sample-pipeline % mkdir ~/website-operator/website-app && cd ~/website-operator/website-app \
+> shub ocp4.2 ~/sample-pipeline % git clone https://github.com/shkatara/openshift-website-operator 
+
+Once cloned, you now need to make the CRD for your website-app
+
+> shub ocp4.2 ~/sample-pipeline % oc create -f deploy/crds/website.example.com_websites_crd.yaml
 
 
