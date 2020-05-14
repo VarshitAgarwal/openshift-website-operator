@@ -1,0 +1,5 @@
+---
+- version: v1
+  group: website.example.com
+  kind: Website
+  role: website

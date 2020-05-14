@@ -1,0 +1,7 @@
+apiVersion: website.example.com/v1
+kind: Website
+metadata:
+  name: example-website
+spec:
+  # Add fields here
+  size: 1

@@ -1,0 +1,43 @@
+---
+# tasks file for Memcached
+- name: start apache
+  k8s:
+    definition:
+      kind: Deployment
+      apiVersion: apps/v1
+      metadata:
+        name: '{{ meta.name }}-website-dc'
+        namespace: '{{ meta.namespace }}'
+      spec:
+        replicas: "{{size}}"
+        selector:
+          matchLabels:
+            app: '{{ meta.name }}-website-dc'  
+        template:
+          metadata:
+            labels:
+              app: '{{ meta.name }}-website-dc'
+          spec:
+            containers:
+            - name: website
+              image: "quay.io/shubhamkatara/openshift-website-operator-app"
+              ports:
+                - containerPort: 8080
+
+- name: add service
+  k8s:
+    definition:
+      apiVersion: v1
+      kind: Service
+      metadata:
+        name: example-website-website-dc
+        namespace: demo-operator
+      spec:
+        ports:
+        - port: 8080
+          protocol: TCP
+          targetPort: 8080
+        selector:
+          app: example-website-website-dc
+        type: ClusterIP
+
