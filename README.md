@@ -48,17 +48,27 @@ Things are going good and they are all fine, until one day something goes wrong.
 3. You wanted to install new tiles and add a new chimney in your kitchen but for that, you need to put all 
 the stuff outside, carefully, making sure it does not break, and once the work is done, you need to put it back.
 
-Now while you were living in that home, it was good. But now, you are kind of on your own to do the regular maintainance tasks and doing it all manually takes a lot of your time and you wanted to relax and watch NetFlix or learn a new skill. You are sad.
+Now while you were living in that home, it was good. But now, you are kind of on your own to do the regular maintainance 
+tasks and doing it all manually takes a lot of your time and you wanted to relax and watch NetFlix or learn a new skill. 
+
+You are sad.
+
 ```
 Surprisingly..
 ```
-Your friend also moved to London a couple of weeks after you and he also needed a place to stay. He this time went to a different housing company which gave them a house to stay, the keys, and also they sent along a man from their company who would stay at hist home, under his conditions and the only thing he would do is to maintain the house. Now he also find himself in the same situation over as yours.
+Your friend also moved to London a couple of weeks after you and he also needed a place to stay. He this time went to a 
+different housing company which gave them a house to stay, the keys, and also they sent along a man from their company 
+who would stay at hist home, under his conditions and the only thing he would do is to maintain the house. 
+Now he also find himself in the same situation over as yours.
 
 1. His bedroom's window was broken as there were some people playing cricket outside.
 2. His bathroom's tap was leaking because of it was old and needed maintainance.
-3. He wanted to install new tiles and add a new chimney in your kitchen but for that, he needed to put all the stuff outside, carefully, making sure it does not break, and once the work is done, he needed to put it back.
+3. He wanted to install new tiles and add a new chimney in your kitchen but for that, he needed to put all 
+the stuff outside, carefully, making sure it does not break, and once the work is done, he needed to put it back.
 
-But only this time, he is not doing it by himself. The person who was sent by the housing company knows the house and has the knowledge of all those tasks, so rather than your friend doing it, the man is doing it all for him, automatically. Taking care of window maintainance, kitchen upgrades and tap leakage fixing. 
+But only this time, he is not doing it by himself. The person who was sent by the housing company knows the house and 
+has the knowledge of all those tasks, so rather than your friend doing it, the man is doing it all for him, automatically. 
+Taking care of window maintainance, kitchen upgrades and tap leakage fixing. 
 ```
 This is what an Operator is.
 ---------------------------
