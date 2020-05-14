@@ -1,6 +1,6 @@
 ---
 # tasks file for Memcached
-- name: start apache
+- name: Creating the Application deployment 
   k8s:
     definition:
       kind: Deployment
@@ -24,7 +24,7 @@
               ports:
                 - containerPort: 8080
 
-- name: add service
+- name: Creating the service
   k8s:
     definition:
       apiVersion: v1
