@@ -23,40 +23,40 @@ For installing CRC Openshift 4, follow the following:
 
 * [OpenShift 4 IPI Installation](https://developers.redhat.com/blog/2019/09/05/red-hat-openshift-4-on-your-laptop-introducing-red-hat-codeready-containers/) A tutorial about working with Openshift Installations
 
-A bit about Operators.
+A bit about Kubernetes Operators. ( Skip if you know what are Operators )
 --------------------
-Now, This can easily be the easiest part 
+I am not going to give you any technical definitions but to be honest, when I was learning about them, finding resources, those technical definitions did not make much sense to me. \
 
+I want you to think something simple, as a use case. 
+
+You are moving out from your city to somewhere else, maybe to London, and you need a place to stay. You go to a housing company, and they give you the house and the keys as well to that house. You go there and then you live. \
+Things are going good and they are all fine, until one day something goes wrong.
+
+1. Your bedroom's window was broken as there were some people playing cricket outside.
+2. Your bathroom's tap was leaking because of it was old and needed maintainance.
+3. You wanted to install new tiles and add a new chimney in your kitchen but for that, you need to put all the stuff outside, carefully, making sure it does not break, and once the work is done, you need to put it back.
+
+Now while you were living in that home, it was good. But now, you are kind of on your own to do the regular maintainance tasks and doing it all manually takes a lot of your time and you wanted to relax and watch NetFlix or learn a new skill. You are sad.
+
+##Surprisingly..
+
+Your friend also moved to London a couple of weeks after you and he also needed a place to stay. He this time went to a different housing company which gave them a house to stay, the keys, and also they sent along a man from their company who would stay at hist home, under his conditions and the only thing he would do is to maintain the house. Now he also find himself in the same situation over as yours.
+
+1. His bedroom's window was broken as there were some people playing cricket outside.
+2. His bathroom's tap was leaking because of it was old and needed maintainance.
+3. He wanted to install new tiles and add a new chimney in your kitchen but for that, he needed to put all the stuff outside, carefully, making sure it does not break, and once the work is done, he needed to put it back.
+
+But only this time, he is not doing it by himself. The person who was sent by the housing company knows the house and has the knowledge of all those tasks, so rather than your friend doing it, the man is doing it all for him, automatically. Taking care of window maintainance, kitchen upgrades and tap leakage fixing. 
+
+##This is what an Operator is. An operator is an extension of the application's engineering team you are deploying, which listens on the events related to this application, and takes decision and makes changes which can involve but not limited to, taking backups, handling updates or upgrades, starting new deployments and so on. In a nutshell, the operator is the man which comes with your application, that would do the day-2-operations for you on your behalf. 
+
+The Operators has a maturity level. Starting from simple deployment to all the way from a much more complex auto-piloted mode where it takes care of backups, restores, upgrades and component failure.
+
+ 
 
 Once you have the required Openshift cluster setup by CRC or some other ways, create the project and deploy Jenkins-ephemeral from the template.
 
 > shub ocp4.2 ~/sample-pipeline % oc new-project jenkins-ci-cd  \
 > shub ocp4.2 ~/sample-pipeline % oc new-app --name jenkins jenkins-ephemeral
 
-Having the Jenkins server running, you need to create the project which Jenkins will use to deploy applications on. Usually this could be the same project where Jenkins is running, but it is a common approach to have one Jenkins server running and sharing it between multiple projects, such as dev projects.
-
-> shub ocp4.2 ~/sample-pipeline % oc new-project jenkins-deploy
-
-Because Jenkins is running in a different project and it will build and deploy applications in a different project, you will need to give at least edit access to the jenkins serviceaccount to your new jenkins-deploy project. 
-
-> shub ocp4.2 ~/sample-pipeline % oc policy add-role-to-user edit system:serviceaccount:jenkins-ci-cd:jenkins 
-
-2. In the jenkins-ci-cd project, there is a route created for the Jenkins server, use that to open Jenkins. As this is running on Openshift, you can use the same credentials to login as your own openshift cluster, thanks to the Openshift Login Plugin. 
-
-Login using your credentials and go to Manage Jenkins ( on the left side ) ---> Configure System.
-
-Find the "OpenShift Jenkins Sync" project and just add the project you made in the "Namespace" field. Make sure you do not remove the existing project name. Use a whitespace as a delimiter. Do not change anything else unless you know what you are doing. Hit save. 
-
-3. Now you will need to start a new build using the Jenkinsfile given in the git repository.
-
-> shub ocp4.2 ~/sample-pipeline % oc project jenkins-deploy \
-> shub ocp4.2 ~/sample-pipeline % oc new-app --name from-jenkinsfile --code https://github.com/shkatara/jenkins-pipeline --context-dir shubham-pipeline
-
-In some time, you should see a build starting in Openshift / Jenkins. If not, manually start it, 
-
-> shub ocp4.2 ~/sample-pipeline % oc start-build from-jenkinsfile
-
-4. Look at the build, it will start the pipeline and the pipeline will then start the building and prompt for the inputs for creating the route for the built application. Approve it and your application should be ready in the jenkins-deploy project. 
-
-##Note: This might take some time because the pipeline does not wait for the build to finish, but just moves on and gives a prompt and creates a route. If that happens, the route will give a standard Openshift 404. Wait for some time, let the application build ( or even check for the builds yourself ) and once it says complete, you can access your application.
 
