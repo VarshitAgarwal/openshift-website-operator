@@ -38,7 +38,8 @@ I want you to think something simple, as a use case.
 
 
 ```
-You are moving out from your city to somewhere else, maybe to London, and you need a place to stay. You go to a housing company, and they give you the house and the keys as well to that house. You go there and then you live. 
+You are moving out from your city to somewhere else, maybe to London, and you need a place to stay. You go to 
+a housing company, and they give you the house and the keys as well to that house. You go there and then you live. 
 Things are going good and they are all fine, until one day something goes wrong.
 
 1. Your bedroom's window was broken as there were some people playing cricket outside.
