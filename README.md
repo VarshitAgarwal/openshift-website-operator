@@ -25,11 +25,11 @@ For installing CRC Openshift 4, follow the following:
 
 A bit about Kubernetes Operators. ( Skip if you know what are Operators )
 --------------------
-I am not going to give you any technical definitions but to be honest, when I was learning about them, finding resources, those technical definitions did not make much sense to me. \
+I am not going to give you any technical definitions but to be honest, when I was learning about them, finding resources, those technical definitions did not make much sense to me. 
 
 I want you to think something simple, as a use case. 
 
-You are moving out from your city to somewhere else, maybe to London, and you need a place to stay. You go to a housing company, and they give you the house and the keys as well to that house. You go there and then you live. \
+You are moving out from your city to somewhere else, maybe to London, and you need a place to stay. You go to a housing company, and they give you the house and the keys as well to that house. You go there and then you live. 
 Things are going good and they are all fine, until one day something goes wrong.
 
 1. Your bedroom's window was broken as there were some people playing cricket outside.
@@ -48,7 +48,7 @@ Your friend also moved to London a couple of weeks after you and he also needed 
 
 But only this time, he is not doing it by himself. The person who was sent by the housing company knows the house and has the knowledge of all those tasks, so rather than your friend doing it, the man is doing it all for him, automatically. Taking care of window maintainance, kitchen upgrades and tap leakage fixing. 
 
-##This is what an Operator is. An operator is an extension of the application's engineering team you are deploying, which listens on the events related to this application, and takes decision and makes changes which can involve but not limited to, taking backups, handling updates or upgrades, starting new deployments and so on. In a nutshell, the operator is the man which comes with your application, that would do the day-2-operations for you on your behalf. 
+#This is what an Operator is. An operator is an extension of the application's engineering team you are deploying, which listens on the events related to this application, and takes decision and makes changes which can involve but not limited to, taking backups, handling updates or upgrades, starting new deployments and so on. In a nutshell, the operator is the man which comes with your application, that would do the day-2-operations for you on your behalf. 
 
 The Operators has a maturity level. Starting from simple deployment to all the way from a much more complex auto-piloted mode where it takes care of backups, restores, upgrades and component failure.
 
