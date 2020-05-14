@@ -12,8 +12,8 @@ This explaination does require some of the basic Openshift knowledge about a cou
 3. [Role Based Access Control](https://docs.openshift.com/container-platform/4.2/authentication/using-rbac.html) Red Hat documentation for learning about Role based access control.
 4. [Security Context Constraints](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html) Red Hat documentation for learning about security context constraint.
 
-Now when I say you need the basics, you only need to ba able to give permissions using the oc adm policy and give scc access to the service accounts. \
- 
+Now when I say you need the basics, you only need to ba able to give permissions using the oc adm policy and give scc access to the service accounts.
+  
 In case of service and routes, you need to know how to expose a service in order to create a route.
 
 Tested On
