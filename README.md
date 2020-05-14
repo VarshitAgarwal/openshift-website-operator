@@ -40,11 +40,13 @@ I want you to think something simple, as a use case.
 ```
 You are moving out from your city to somewhere else, maybe to London, and you need a place to stay. You go to 
 a housing company, and they give you the house and the keys as well to that house. You go there and then you live. 
+
 Things are going good and they are all fine, until one day something goes wrong.
 
 1. Your bedroom's window was broken as there were some people playing cricket outside.
 2. Your bathroom's tap was leaking because of it was old and needed maintainance.
-3. You wanted to install new tiles and add a new chimney in your kitchen but for that, you need to put all the stuff outside, carefully, making sure it does not break, and once the work is done, you need to put it back.
+3. You wanted to install new tiles and add a new chimney in your kitchen but for that, you need to put all 
+the stuff outside, carefully, making sure it does not break, and once the work is done, you need to put it back.
 
 Now while you were living in that home, it was good. But now, you are kind of on your own to do the regular maintainance tasks and doing it all manually takes a lot of your time and you wanted to relax and watch NetFlix or learn a new skill. You are sad.
 ```
