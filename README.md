@@ -3,22 +3,22 @@ Getting Started With Operators and Operator-SDK
 
 About this Operator
 -------------------
-This is a simple but working operator which listens on the creation of resources in the website.example.com group and the version v1 for kind Website. Once the operator is deployed, it listens and watches on any creation of Website kind of resource in the project where the operator is running as a pod, you will react to it by starting a new deployment automatically.  
+This is a simple but working operator which once deployed, listens and watches on any creation of Website kind of Custom Resource in the project where the operator is running as a pod, and will react to it by starting a new deployment automatically.  
 
-
-Okay. This explaination does require some of the basic Openshift knowledge about a couple of things. Here are they and should you need more about them, given are the resources. 
+This explaination does require some of the basic Openshift knowledge about a couple of things. Here are they and should you need more about them, given are the resources. 
 
 1. [Service Account](https://docs.openshift.com/container-platform/4.2/authentication/understanding-and-creating-service-accounts.html) A damn good blog for learning about ServiceAccounts.
 2. [Routes](https://docs.openshift.com/container-platform/4.2/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html) A place to learn about Openshift Ingress and Routes
 3. [Role Based Access Control](https://docs.openshift.com/container-platform/4.2/authentication/using-rbac.html) Red Hat documentation for learning about Role based access control.
 4. [Security Context Constraints](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html) Red Hat documentation for learning about security context constraint.
 
-Now when I say you need the basics, you only need to ba able to give permissions using the oc adm policy and give scc access to the service accounts. 
+Now when I say you need the basics, you only need to ba able to give permissions using the oc adm policy and give scc access to the service accounts. \
+ 
 In case of service and routes, you need to know how to expose a service in order to create a route.
 
 Tested On
 --------------------
-1. A working Openshift 4.2 cluster running on AWS.
+1. Openshift 4.2 cluster running on AWS.
 
 Things you'll need
 --------------------
