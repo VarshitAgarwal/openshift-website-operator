@@ -80,8 +80,10 @@ IMPORTANT: If you are following this github which I am expecting you are, do not
 
 Make the CRD for your website-app
 ---------------------------------
+1. Create the project
+> shub ocp4.2 ~/sample-pipeline % oc new-project demo-operator \
 
-> shub ocp4.2 ~/sample-pipeline % oc new-project demo-operator
+2. Add the CRD to openshift
 > shub ocp4.2 ~/sample-pipeline % oc create -f deploy/crds/website.example.com_websites_crd.yaml
 
 A Custom Resource Definition is just a resource you specify to increate the vocabulary of Kubernetes. 
@@ -104,7 +106,27 @@ This is an ansible based operator which is running inside of a pod, so you need 
 > shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/service_account.yaml
 
 2. Give the service account enough access to create basic resources like services, pods, deployments as the operator will be creating these in your project.
-> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/role.yml
+
+> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/role.yml \
 > shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/role_binding.yaml
 
- 
+3. Deploy the operator
+> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/operator.yml
+
+This Operator is deployed from an image which is coming from "quay.io/shubhamkatara/openshift-website-operator", which on the creation of Website resource, deploys the "quay.io/shubhamkatara/openshift-website-operator-app" image.
+
+Moment of truth
+---------------
+
+This operator is now waiting for the creation of a CR ( Custom Resource ), upon which it will take some actions by running a playbook and will orchestrate the deployment of a httpd based application from the image quay.io/shubhamkatara/openshift-website-operator-app.
+
+Custom Resource is the instance of a Custom Resource Definition and something the Operator will watch on. 
+
+> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/crds/website.example.com_v1_website_cr.yaml
+
+As soon as this CR is created, a new deployment will be started and a new service will be created. This is because the operator was listening on the creation of "kind: Website" resource and started an ansible based playbook execution.
+It does not create a route, so that is what you will have to do on your own.
+
+> shub ocp4.2 ~/sample-pipeline % oc expose svc example-website-website-dc
+
+Once deployed, go to the route and you will see the application available over at the route. :) 
