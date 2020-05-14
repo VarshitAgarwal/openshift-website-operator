@@ -74,12 +74,7 @@ This is what an Operator is.
 ---------------------------
 An operator is an extension of the application's engineering team you are deploying, which listens on the events related to this application, and takes decision and makes changes which can involve but not limited to, taking backups, handling updates or upgrades, starting new deployments and so on. In a nutshell, the operator is the man which comes with your application, that would do the day-2-operations for you on your behalf. 
 
-The Operators has a maturity level. Starting from simple deployment to all the way from a much more complex auto-piloted mode where it takes care of backups, restores, upgrades and component failure.
-
-About this Operator
--------------------
-This is a simple
-
+Operators have a maturity level. They can manage starting from simple deployment to all the way from a much more complex auto-piloted mode where it takes care of backups, restores, upgrades and component failure.
 
 Working with this git repository.
 ---------------------------------
