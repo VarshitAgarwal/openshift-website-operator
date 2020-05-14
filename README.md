@@ -78,8 +78,33 @@ IMPORTANT: If you are following this github which I am expecting you are, do not
 > shub ocp4.2 ~/sample-pipeline % mkdir ~/website-operator/website-app && cd ~/website-operator/website-app \
 > shub ocp4.2 ~/sample-pipeline % git clone https://github.com/shkatara/openshift-website-operator 
 
-Once cloned, you now need to make the CRD for your website-app
+Make the CRD for your website-app
+---------------------------------
 
+> shub ocp4.2 ~/sample-pipeline % oc new-project demo-operator
 > shub ocp4.2 ~/sample-pipeline % oc create -f deploy/crds/website.example.com_websites_crd.yaml
 
+A Custom Resource Definition is just a resource you specify to increate the vocabulary of Kubernetes. 
 
+If you do, kubectl or oc get pods, you get a response, but if you do oc get bla, it gives an error of 'error: the server doesn't have a resource type "bla"'. So with the CRD, we are basically telling Openshift that you now know "bla"
+
+
+Preparing the Project
+----------------------
+As I said this is a working Operator, but it still needs some refractoring. I will do it if I get time. But for now, there are some filesystem permission issues within the ansible execution inside the operator pod because of which the deployment fails. So you need to add the anyuid scc to your project.
+
+> shub ocp4.2 ~/sample-pipeline % oc adm policy add-scc-to-user system:serviceaccount:demo-operator
+
+Deploying the Operator
+----------------------
+This is an ansible based operator which is running inside of a pod, so you need to setup the following resources.
+
+1. Create a service account that will run the operator.
+
+> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/service_account.yaml
+
+2. Give the service account enough access to create basic resources like services, pods, deployments as the operator will be creating these in your project.
+> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/role.yml
+> shub ocp4.2 ~/sample-pipeline % oc create  -f deploy/role_binding.yaml
+
+ 
