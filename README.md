@@ -80,7 +80,7 @@ Working with this git repository.
 ---------------------------------
 Once you have the working cluster and operator-sdk installed, you need to initialize the temporary working directory for ansible based operators.
 
-shub ocp4.2 ~/sample-pipeline % mkdir ~/website-operator && cd ~/website-operator \
+shub ocp4.2 ~/sample-pipeline % mkdir ~/website-operator && cd ~/website-operator  
 shub ocp4.2 ~/sample-pipeline % operator-sdk new website-app --type=ansible --api-version=website.example.com/v1 --kind=Website
 
 IMPORTANT: If you are following this github which I am expecting you are, do not create your own operator. We are going to use the files from this git repository, and these are the same files created with the command.
